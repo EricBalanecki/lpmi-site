@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface ProjectCardProps {
   title: string;

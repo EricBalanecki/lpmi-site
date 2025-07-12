@@ -140,7 +140,7 @@ export default function Home() {
               <p className="mt-6 text-lg text-muted-foreground">
                 The Leading PM Institute is dedicated to advancing the project management 
                 profession through education, training, and professional development. 
-                We believe that great project managers are made, not born, and we're 
+                We believe that great project managers are made, not born, and we&apos;re 
                 committed to providing the resources and support needed to excel in this 
                 dynamic field.
               </p>

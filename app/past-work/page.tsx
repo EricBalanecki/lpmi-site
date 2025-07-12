@@ -96,7 +96,7 @@ export default function PastWork() {
             Ready to Start Your Next Project?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Let's discuss how we can help you achieve your project management goals 
+            Let&apos;s discuss how we can help you achieve your project management goals 
             and drive successful outcomes for your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
