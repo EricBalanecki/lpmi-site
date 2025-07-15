@@ -4,37 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  // Service card data
-  const cards = [
-    {
-      imageSrc: "/images/services/consulting-service.jpg",
-      imageAlt: "Consulting Service",
-      title: "Project Management Consulting",
-      description:
-        "Strategic consulting services to optimize your project management processes and improve team performance.",
-      link: "/services/consulting",
-      gradient: "from-blue-100 to-blue-200",
-    },
-    {
-      imageSrc: "/images/services/training-service.jpg",
-      imageAlt: "Training Service",
-      title: "Training",
-      description:
-        "Professional development programs designed to enhance your project management skills and leadership capabilities.",
-      link: "/services/training",
-      gradient: "from-gray-100 to-gray-200",
-    },
-    {
-      imageSrc: "/images/services/coaching-service.jpg",
-      imageAlt: "Coaching Service",
-      title: "Coaching",
-      description:
-        "One-on-one coaching and mentorship to accelerate your career growth and overcome professional challenges.",
-      link: "/services/coaching",
-      gradient: "from-gray-100 to-gray-200",
-    },
-  ];
-
   // Animation variants for cards
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
