@@ -18,6 +18,7 @@ import { AnimatePresence, motion } from "framer-motion"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-md">
@@ -119,13 +120,54 @@ export function Navbar() {
                 >
                   Home
                 </Link>
-                <Link
-                  href="/services"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:text-muted-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Services
-                </Link>
+                <div className="space-y-1">
+                 <button
+                   onClick={() => setIsServicesOpen(!isServicesOpen)}
+                   className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:text-muted-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
+                 >
+                   Services
+                   <svg
+                     className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor"
+                   >
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                   </svg>
+                 </button>
+                 {isServicesOpen && (
+                   <div className="space-y-1 pl-4">
+                    <Link
+                      href="/services/consulting"
+                      className="block rounded-md px-6 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      IT Project Delivery
+                    </Link>
+                    <Link
+                      href="/services/training"
+                      className="block rounded-md px-6 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Technical Program Management
+                    </Link>
+                    <Link
+                      href="/services/coaching"
+                      className="block rounded-md px-6 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Project Recovery & Turnaround
+                    </Link>
+                    <Link
+                      href="/services/consulting"
+                      className="block rounded-md px-6 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Stakeholder & Vendor Coordination
+                    </Link>
+                   </div>
+                 )}
+                </div>
                 <Link
                   href="/past-work"
                   className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:text-muted-foreground hover:bg-transparent focus:bg-transparent focus:text-foreground"
