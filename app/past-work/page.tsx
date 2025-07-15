@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
+import { motion } from "framer-motion";
 
 export default function PastWork() {
   const projects = [
@@ -75,15 +76,22 @@ export default function PastWork() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <ProjectCard
+              <motion.div
                 key={index}
-                title={project.title}
-                year={project.year}
-                description={project.description}
-                tags={project.tags}
-                imageSrc={project.imageSrc}
-                imageAlt={project.imageAlt}
-              />
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <ProjectCard
+                  title={project.title}
+                  year={project.year}
+                  description={project.description}
+                  tags={project.tags}
+                  imageSrc={project.imageSrc}
+                  imageAlt={project.imageAlt}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
