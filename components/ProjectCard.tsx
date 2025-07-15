@@ -39,7 +39,7 @@ export default function ProjectCard({
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
             >
               {tag}
             </span>

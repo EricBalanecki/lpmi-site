@@ -14,12 +14,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { AnimatePresence, motion } from "framer-motion"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -42,27 +43,21 @@ export function Navbar() {
                               <NavigationMenuList>
                   <NavigationMenuItem>
                   <NavigationMenuTrigger className="group inline-flex h-12 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-muted-foreground hover:bg-transparent focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-muted-foreground data-[state=open]:bg-transparent bg-transparent">
-                  Services
+                  SERVICES
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid gap-3 p-4 w-[200px]">
-                        <Link href="/services/consulting" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Consulting</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Strategic consulting services for your business
-                          </p>
+                      <div className="grid gap-3 p-4 w-[260px] bg-background rounded-xl shadow-xl">
+                        <Link href="/services/consulting" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">IT Project Delivery</div>
                         </Link>
-                        <Link href="/services/training" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Training</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Professional development and training programs
-                          </p>
+                        <Link href="/services/training" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Technical Program Management</div>
                         </Link>
-                        <Link href="/services/coaching" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Coaching</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            One-on-one coaching and mentorship
-                          </p>
+                        <Link href="/services/coaching" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Project Recovery & Turnaround</div>
+                        </Link>
+                        <Link href="/services/consulting" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Stakeholder & Vendor Coordination</div>
                         </Link>
                       </div>
                     </NavigationMenuContent>
@@ -70,21 +65,21 @@ export function Navbar() {
                   <NavigationMenuItem>
                     <Link href="/past-work" legacyBehavior passHref>
                       <NavigationMenuLink className="group inline-flex h-12 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-muted-foreground hover:bg-transparent focus:outline-none focus:bg-transparent focus:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[active]:text-foreground data-[active]:bg-transparent data-[state=open]:text-foreground data-[state=open]:bg-transparent">
-                        Past Work
+                        PAST WORK
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <Link href="/about" legacyBehavior passHref>
                       <NavigationMenuLink className="group inline-flex h-12 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-muted-foreground hover:bg-transparent focus:outline-none focus:bg-transparent focus:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[active]:text-foreground data-[active]:bg-transparent data-[state=open]:text-foreground data-[state=open]:bg-transparent">
-                        About
+                        ABOUT
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <Link href="/contact" legacyBehavior passHref>
-                      <NavigationMenuLink className="group inline-flex h-12 w-max items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium transition-colors hover:bg-primary/70 hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary data-[state=open]:bg-primary">
-                        Contact
+                      <NavigationMenuLink className="group inline-flex h-12 w-max items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium transition-colors hover:bg-primary/70 hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary data-[state=open]:bg-primary text-bold">
+                        CONTACT
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
@@ -107,8 +102,15 @@ export function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-                      <div className="md:hidden">
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="md:hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="space-y-1 px-2 pb-3 pt-2">
                 <Link
                   href="/"
@@ -146,8 +148,9 @@ export function Navbar() {
                   Contact
                 </Link>
               </div>
-            </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   )
