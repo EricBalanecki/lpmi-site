@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import { motion } from "framer-motion";
@@ -74,10 +76,11 @@ export default function PastWork() {
       {/* Past Work Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 h-full">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
+                className="h-full flex"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
