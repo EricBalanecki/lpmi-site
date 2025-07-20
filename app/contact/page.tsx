@@ -46,11 +46,7 @@ export default function ContactPage() {
         <div className="bg-card rounded-2xl shadow-lg p-8 mb-10">
           <div className="mb-6">
             <div className="mb-2 text-foreground font-semibold">Email</div>
-            <a href="mailto:info@lpmi.com" className="text-primary hover:underline">info@lpmi.com</a>
-          </div>
-          <div>
-            <div className="mb-2 text-foreground font-semibold">Phone</div>
-            <a href="tel:+1234567890" className="text-primary hover:underline">(123) 456-7890</a>
+            <a href="mailto:info@lpmi.com" className="text-primary hover:underline">info@leadingpm.ca</a>
           </div>
         </div>
         <form ref={formRef} onSubmit={handleSubmit} className="bg-card rounded-2xl shadow p-8 grid gap-6">

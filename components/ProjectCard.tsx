@@ -8,6 +8,7 @@ interface ProjectCardProps {
   tags: string[];
   imageSrc: string;
   imageAlt: string;
+  logoSrc?: string;
 }
 
 export default function ProjectCard({
@@ -17,16 +18,17 @@ export default function ProjectCard({
   tags,
   imageSrc,
   imageAlt,
+  logoSrc,
 }: ProjectCardProps) {
   return (
     <Card className="bg-background rounded-2xl shadow-lg overflow-hidden border-0 min-h-[420px] flex flex-col">
-      <div className="h-48 flex items-center justify-center">
+      <div className="h-48 flex items-center justify-center bg-white">
         <Image
-          src={imageSrc}
+          src={logoSrc || imageSrc}
           alt={imageAlt}
-          width={400}
-          height={300}
-          className="object-cover w-full h-full"
+          width={200}
+          height={120}
+          className="object-contain w-full h-full p-4"
         />
       </div>
       <CardContent className="p-8 flex-1 flex flex-col">

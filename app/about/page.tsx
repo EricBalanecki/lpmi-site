@@ -9,7 +9,8 @@ export default function About() {
       description: "IT Technical Project Management for the new Acute Care Facility (ACF) redevelopment project at Lions Gate Hospital.",
       tags: ["Healthcare IT", "Infrastructure", "Technical PM"],
       imageSrc: "/images/past-work/lions-gate-hospital.jpg",
-      imageAlt: "Lions Gate Hospital"
+      imageAlt: "Lions Gate Hospital",
+      logoSrc: "/images/logos/lionsgate.webp"
     },
     {
       title: "Vancity Contact Centre",
@@ -17,7 +18,8 @@ export default function About() {
       description: "Program Management for Vancity's Member Experience Contact Centre program with Genesys SAAS cloud-based call centre solution and API integrations.",
       tags: ["Program Management", "Genesys", "API Integration"],
       imageSrc: "/images/past-work/vancity-contact-centre.jpg",
-      imageAlt: "Vancity Contact Centre"
+      imageAlt: "Vancity Contact Centre",
+      logoSrc: "/images/logos/Logo-vancity.png"
     },
     {
       title: "BC Hydro Cybersecurity",
@@ -25,7 +27,36 @@ export default function About() {
       description: "Project management for BC Hydro Cybersecurity portfolio including Next Generation cybersecurity firewall and datacentre network security projects.",
       tags: ["Cybersecurity", "Firewall", "Datacentre"],
       imageSrc: "/images/past-work/bc-hydro-cybersecurity.jpg",
-      imageAlt: "BC Hydro Cybersecurity"
+      imageAlt: "BC Hydro Cybersecurity",
+      logoSrc: "/images/logos/bc_hydro.png"
+    }
+  ];
+
+  const teamMembers = [
+    {
+      name: "Donald Balanecki",
+      title: "CEO/President/Management Consultant",
+      description: "Leading strategic initiatives and providing executive-level project management consulting."
+    },
+    {
+      name: "Josh Bradley",
+      title: "IT Director/IT Solution Delivery Lead",
+      description: "Overseeing IT infrastructure projects and solution delivery across complex technical environments."
+    },
+    {
+      name: "Amit Kurana",
+      title: "PMO Director/Project Management Delivery Lead",
+      description: "Managing project portfolio delivery and establishing PMO best practices and methodologies."
+    },
+    {
+      name: "Donna Balanecki",
+      title: "Operations Director/RN/Health Care Clinical SME",
+      description: "Providing healthcare expertise and clinical operations management for healthcare IT projects."
+    },
+    {
+      name: "Eric Balanecki",
+      title: "IT Specialist/MS Team Voice Engineer",
+      description: "Specializing in Microsoft Teams voice solutions and technical implementation support."
     }
   ];
 
@@ -59,7 +90,7 @@ export default function About() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="/images/about/about-team.jpg"
+              src="/images/about/approach-team.jpg"
               alt="LPMI Team at work"
               width={400}
               height={300}
@@ -69,8 +100,44 @@ export default function About() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
+      {/* Team Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
+              Our Leadership Team
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Meet the experienced professionals who drive our success and deliver exceptional results for our clients.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-primary">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-medium text-sm mb-3">
+                    {member.title}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-left mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -90,6 +157,7 @@ export default function About() {
                 tags={project.tags}
                 imageSrc={project.imageSrc}
                 imageAlt={project.imageAlt}
+                logoSrc={project.logoSrc}
               />
             ))}
           </div>

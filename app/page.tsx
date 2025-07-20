@@ -64,124 +64,259 @@ export default function Home() {
       {/* Services Section - moved above About */}
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl ">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
               Our Services
             </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive project management and technology solutions tailored to your organization's needs.
+            </p>
           </div>
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {/* IT Project Delivery */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              transition={{ delay: 0.2 }}
-              className="bg-background rounded-2xl shadow-lg overflow-hidden"
-            >
-              <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                <Image
-                  src="/images/services/consulting-service.jpg"
-                  alt="IT Project Delivery"
-                  width={200}
-                  height={200}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-3">IT Project Delivery</h3>
-                <p className="text-muted-foreground mb-6">
-                  We manage every detail of your IT infrastructure rollout, ensuring seamless delivery and minimal disruption to your business.
-                </p>
-                <Link href="/services/consulting" className="font-medium transition-colors text-gray-700 hover:text-gray-900">
-                  Learn More
-                </Link>
-              </div>
-            </motion.div>
-            {/* Technical Program Management */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              transition={{ delay: 0.35 }}
-              className="bg-background rounded-2xl shadow-lg overflow-hidden"
-            >
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <Image
-                  src="/images/services/training-service.jpg"
-                  alt="Technical Program Management"
-                  width={200}
-                  height={200}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-3">Technical Program Management</h3>
-                <p className="text-muted-foreground mb-6">
-                  Oversight and coordination of multi-project programs, vendor management, and executive reporting for mission-critical technology initiatives.
-                </p>
-                <Link href="/services/training" className="font-medium transition-colors text-gray-700 hover:text-gray-900">
-                  Learn More
-                </Link>
-              </div>
-            </motion.div>
-            {/* Project Recovery & Turnaround */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              transition={{ delay: 0.5 }}
-              className="bg-background rounded-2xl shadow-lg overflow-hidden"
-            >
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <Image
-                  src="/images/services/coaching-service.jpg"
-                  alt="Project Recovery & Turnaround"
-                  width={200}
-                  height={200}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-3">Project Recovery & Turnaround</h3>
-                <p className="text-muted-foreground mb-6">
-                  Rapid assessment and rescue of troubled IT projects. We restore momentum, resolve issues, and deliver results for your organization.
-                </p>
-                <Link href="/services/coaching" className="font-medium transition-colors text-gray-700 hover:text-gray-900">
-                  Learn More
-                </Link>
-              </div>
-            </motion.div>
-            {/* Stakeholder & Vendor Coordination */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              transition={{ delay: 0.65 }}
-              className="bg-background rounded-2xl shadow-lg overflow-hidden"
-            >
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <Image
-                  src="/images/services/consulting-service.jpg"
-                  alt="Stakeholder & Vendor Coordination"
-                  width={200}
-                  height={200}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-3">Stakeholder & Vendor Coordination</h3>
-                <p className="text-muted-foreground mb-6">
-                  We coordinate all project stakeholders and vendors, ensuring clear communication and accountability from kickoff to closeout.
-                </p>
-                <Link href="/services/consulting" className="font-medium transition-colors text-gray-700 hover:text-gray-900">
-                  Learn More
-                </Link>
-              </div>
-            </motion.div>
+          
+          {/* Project Management Services */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">Project Management Services</h3>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {/* IT Project Delivery */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.2 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-4xl font-bold mb-2">IT</div>
+                    <div className="text-sm">Project Delivery</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">IT Project Delivery</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    We manage every detail of your IT infrastructure rollout, ensuring seamless delivery and minimal disruption to your business.
+                  </p>
+                  <Link href="/services/consulting" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+              
+              {/* Technical Program Management */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.35 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-4xl font-bold mb-2">Program</div>
+                    <div className="text-sm">Management</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Technical Program Management</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Oversight and coordination of multi-project programs, vendor management, and executive reporting for mission-critical technology initiatives.
+                  </p>
+                  <Link href="/services/training" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+              
+              {/* Project Recovery & Turnaround */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.5 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-4xl font-bold mb-2">Recovery</div>
+                    <div className="text-sm">& Turnaround</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Project Recovery & Turnaround</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Rapid assessment and rescue of troubled IT projects. We restore momentum, resolve issues, and deliver results for your organization.
+                  </p>
+                  <Link href="/services/coaching" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+              
+              {/* Stakeholder & Vendor Coordination */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.65 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-4xl font-bold mb-2">Coordination</div>
+                    <div className="text-sm">& Management</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Stakeholder & Vendor Coordination</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    We coordinate all project stakeholders and vendors, ensuring clear communication and accountability from kickoff to closeout.
+                  </p>
+                  <Link href="/services/consulting" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Specialized Services */}
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">Specialized Technology Services</h3>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Microsoft Teams Voice */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.2 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-3xl font-bold mb-1">Teams</div>
+                    <div className="text-sm">Voice Solutions</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Microsoft Teams Voice</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Transform your communications with Microsoft Teams Voice integration and unified communications solutions.
+                  </p>
+                  <Link href="/services/teams-voice" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Telecom Architecture */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.35 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-3xl font-bold mb-1">Telecom</div>
+                    <div className="text-sm">Architecture</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Telecommunication Architecture</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Design and implement robust telecommunication infrastructure that powers your organization's digital transformation.
+                  </p>
+                  <Link href="/services/telecom-architecture" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Call Centre */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.5 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-3xl font-bold mb-1">Call Centre</div>
+                    <div className="text-sm">Architecture</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Call Centre Solutions</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Transform your customer service operations with modern call centre solutions that enhance customer experience and agent productivity.
+                  </p>
+                  <Link href="/services/call-centre" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Network Architecture */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.65 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-3xl font-bold mb-1">Network</div>
+                    <div className="text-sm">Architecture</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Network Architecture</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Design and implement robust network infrastructure that forms the foundation of your digital transformation.
+                  </p>
+                  <Link href="/services/network-architecture" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Healthcare */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ delay: 0.8 }}
+                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 lg:col-start-2"
+              >
+                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="text-3xl font-bold mb-1">Healthcare</div>
+                    <div className="text-sm">IT Solutions</div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Healthcare IT</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Specialized IT project management and infrastructure delivery for healthcare environments with regulatory compliance.
+                  </p>
+                  <Link href="/services/health-authority" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
