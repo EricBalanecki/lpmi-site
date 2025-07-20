@@ -17,10 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LPMI - Leading PM Institute",
   description: "Professional development and leadership training for project managers",
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
+  icons: [
+    { rel: 'icon', url: '/favicon.ico' },
+    { rel: 'icon', url: '/favicon.png', type: 'image/png' },
+    { rel: 'apple-touch-icon', url: '/favicon.png' },
+  ],
   openGraph: {
     title: "LPMI - Leading PM Institute",
     description: "Professional development and leadership training for project managers",
@@ -42,10 +43,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
