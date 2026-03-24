@@ -16,11 +16,12 @@ export default function ContactPage() {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
+    const company = formData.get("company") as string;
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, company }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -46,7 +47,7 @@ export default function ContactPage() {
         <div className="bg-card rounded-2xl shadow-lg p-8 mb-10">
           <div className="mb-6">
             <div className="mb-2 text-foreground font-semibold">Email</div>
-            <a href="mailto:info@lpmi.com" className="text-primary hover:underline">info@leadingpm.ca</a>
+            <a href="mailto:info@leadingpm.ca" className="text-primary hover:underline">info@leadingpm.ca</a>
           </div>
         </div>
         <form ref={formRef} onSubmit={handleSubmit} className="bg-card rounded-2xl shadow p-8 grid gap-6">

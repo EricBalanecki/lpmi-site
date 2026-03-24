@@ -2,13 +2,31 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const contactToEmail = process.env.CONTACT_TO_EMAIL || "info@leadingpm.ca";
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL || "LPMI Contact <onboarding@resend.dev>";
 
 // Simple in-memory rate limit (for demo; use Redis or DB for production)
 const ipTimestamps = new Map<string, number>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "Email service is not configured. Please set RESEND_API_KEY." },
+        { status: 500 }
+      );
+    }
+
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "unknown";
     const now = Date.now();
     if (ipTimestamps.has(ip) && now - ipTimestamps.get(ip)! < RATE_LIMIT_WINDOW) {
@@ -29,21 +47,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
     }
     // Custom HTML email template
+    const safeName = escapeHtml(String(name));
+    const safeEmail = escapeHtml(String(email));
+    const safeMessage = escapeHtml(String(message)).replace(/\n/g, "<br/>");
+
     const html = `
       <div style="font-family: Arial, sans-serif; background: #f4f8fb; padding: 32px; border-radius: 12px; color: #1a202c; max-width: 480px; margin: 0 auto;">
         <h2 style="color: #2563eb; margin-bottom: 16px;">New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #2563eb;">${email}</a></p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${safeEmail}" style="color: #2563eb;">${safeEmail}</a></p>
         <p><strong>Message:</strong></p>
-        <div style="background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #dbeafe; margin-bottom: 16px;">${message.replace(/\n/g, "<br/>")}</div>
+        <div style="background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #dbeafe; margin-bottom: 16px;">${safeMessage}</div>
         <hr style="margin: 24px 0; border: none; border-top: 1px solid #dbeafe;" />
         <small style="color: #64748b;">This message was sent from the LPMI website contact form.</small>
       </div>
     `;
     // Send email
     await resend.emails.send({
-      from: "LPMI Contact <noreply@lpmi.com>",
-      to: ["info@lpmi.com"],
+      from: contactFromEmail,
+      to: [contactToEmail],
       subject: `New Contact Form Submission from ${name}`,
       replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
