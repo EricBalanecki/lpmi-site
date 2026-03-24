@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const contactToEmail = process.env.CONTACT_TO_EMAIL || "info@leadingpm.ca";
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL || "LPMI Contact <onboarding@resend.dev>";
+const contactToEmail = process.env.CONTACT_TO_EMAIL || "ebalanecki@gmail.com";
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL || "LPMI Contact <noreply@leadingpm.ca>";
 
 // Simple in-memory rate limit (for demo; use Redis or DB for production)
 const ipTimestamps = new Map<string, number>();
