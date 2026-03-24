@@ -1,5 +1,8 @@
+"use client";
+
 import ProjectCard from "@/components/ProjectCard";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function About() {
   const featuredProjects = [
@@ -64,20 +67,30 @@ export default function About() {
     <div className="min-h-screen pt-20">
       {/* Hero/Intro Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-5xl mx-auto text-center">
+        <motion.div
+          className="max-w-5xl mx-auto text-center"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl mb-6">
             About LPMI
           </h1>
           <p className="text-lg leading-8 text-muted-foreground max-w-3xl mx-auto">
             The Leading PM Institute (LPMI) is a project management consulting and professional development firm dedicated to empowering organizations and individuals to achieve project excellence. With a proven track record across diverse industries, we deliver tailored solutions, expert guidance, and transformative results for our clients.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Values & Approach Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
               Our Approach
             </h2>
@@ -87,8 +100,14 @@ export default function About() {
               <li><span className="text-primary font-semibold mr-2">•</span>Results-Focused: We deliver measurable value, sustainable improvements, and project success.</li>
               <li><span className="text-primary font-semibold mr-2">•</span>Collaborative: We work as an extension of your team, fostering trust and transparency.</li>
             </ul>
-          </div>
-          <div className="flex justify-center">
+          </motion.div>
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <Image
               src="/images/about/approach-team.jpg"
               alt="LPMI Team at work"
@@ -96,7 +115,7 @@ export default function About() {
               height={300}
               className="rounded-2xl shadow-lg object-cover w-full h-64"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -113,7 +132,14 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+              <motion.div
+                key={index}
+                className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+              >
                 <div className="text-center">
                   <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl font-bold text-primary">
@@ -130,7 +156,7 @@ export default function About() {
                     {member.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -149,16 +175,23 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((project, index) => (
-              <ProjectCard
+              <motion.div
                 key={index}
-                title={project.title}
-                year={project.year}
-                description={project.description}
-                tags={project.tags}
-                imageSrc={project.imageSrc}
-                imageAlt={project.imageAlt}
-                logoSrc={project.logoSrc}
-              />
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ProjectCard
+                  title={project.title}
+                  year={project.year}
+                  description={project.description}
+                  tags={project.tags}
+                  imageSrc={project.imageSrc}
+                  imageAlt={project.imageAlt}
+                  logoSrc={project.logoSrc}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
