@@ -45,7 +45,7 @@ export default function Home() {
               <div className="mt-10 flex items-center gap-x-6">
                 <a
                   href="#services"
-                  className="rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors"
+                  className="rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors"
                 >
                   Our Services
                 </a>
@@ -69,7 +69,7 @@ export default function Home() {
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive project management and technology solutions tailored to your organization's needs.
+              Comprehensive project management and technology solutions tailored to your organization&apos;s needs.
             </p>
           </div>
           
@@ -231,7 +231,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-3">Telecommunication Architecture</h3>
                   <p className="text-muted-foreground mb-4 text-sm">
-                    Design and implement robust telecommunication infrastructure that powers your organization's digital transformation.
+                    Design and implement robust telecommunication infrastructure that powers your organization&apos;s digital transformation.
                   </p>
                   <Link href="/services/telecom-architecture" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
                     Learn More →
@@ -368,7 +368,7 @@ export default function Home() {
               <div className="text-muted-foreground">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">20+</div>
+              <div className="text-4xl font-bold text-primary mb-2">25+</div>
               <div className="text-muted-foreground">Years Experience</div>
             </div>
           </div>

@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-wrap gap-6 text-sm font-medium text-muted-foreground">
           <Link href="/">Home</Link>
           <Link href="/#services">Services</Link>
-          <Link href="/past-work">Past Work</Link>
+          <Link href="/client-stories">Client Stories</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>
