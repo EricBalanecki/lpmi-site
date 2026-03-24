@@ -61,10 +61,10 @@ export default function TelecomArchitectureService() {
                 Design and implement robust telecommunication infrastructure that powers your organization's digital transformation. Our expert architects deliver scalable, secure, and high-performance network solutions that support your business objectives and future growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-700 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-700">
                   Get Started
                 </Link>
-                <Link href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-emerald-200 text-base font-medium rounded-md text-emerald-800 bg-white hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-700">
                   Learn More
                 </Link>
               </div>
@@ -88,8 +88,8 @@ export default function TelecomArchitectureService() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-6">
-                  <service.icon className="w-6 h-6 text-primary" />
+                <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-6">
+                  <service.icon className="w-6 h-6 text-emerald-700" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-4">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{service.description}</p>
@@ -112,22 +112,22 @@ export default function TelecomArchitectureService() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+              <div className="w-16 h-16 bg-emerald-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Discovery & Analysis</h3>
               <p className="text-muted-foreground">Comprehensive assessment of current infrastructure, requirements, and business objectives.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+              <div className="w-16 h-16 bg-emerald-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Architecture Design</h3>
               <p className="text-muted-foreground">Detailed technical design including network topology, security framework, and scalability planning.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+              <div className="w-16 h-16 bg-emerald-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Implementation</h3>
               <p className="text-muted-foreground">Phased deployment with minimal disruption, comprehensive testing, and quality assurance.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+              <div className="w-16 h-16 bg-emerald-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Optimization</h3>
               <p className="text-muted-foreground">Performance tuning, monitoring setup, and ongoing support for optimal network operation.</p>
             </div>
@@ -146,7 +146,7 @@ export default function TelecomArchitectureService() {
               <ul className="space-y-4">
                 {capabilities.map((capability, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-emerald-700 mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-muted-foreground">{capability}</span>
                   </li>
                 ))}
@@ -158,7 +158,7 @@ export default function TelecomArchitectureService() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-emerald-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl mb-4">
             Ready to Build Your Telecom Infrastructure?
@@ -166,7 +166,7 @@ export default function TelecomArchitectureService() {
           <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Let our telecommunication architecture experts design and implement a robust network infrastructure that supports your business growth and digital transformation initiatives.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-emerald-800 bg-white hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
             Contact Us Today
           </Link>
         </div>

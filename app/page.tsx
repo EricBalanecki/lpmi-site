@@ -1,14 +1,37 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {
+  type CarouselApi,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
-  // Animation variants for cards
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [activeServiceSlide, setActiveServiceSlide] = useState(0);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setActiveServiceSlide(carouselApi.selectedScrollSnap());
+    };
+
+    onSelect();
+    carouselApi.on("select", onSelect);
+    carouselApi.on("reInit", onSelect);
+
+    return () => {
+      carouselApi.off("select", onSelect);
+      carouselApi.off("reInit", onSelect);
+    };
+  }, [carouselApi]);
 
   return (
     <div className="min-h-screen">
@@ -72,282 +95,175 @@ export default function Home() {
               Comprehensive project management and technology solutions tailored to your organization&apos;s needs.
             </p>
           </div>
-          
-          {/* Project Management Services */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">Project Management Services</h3>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {/* IT Project Delivery */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.2 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-4xl font-bold mb-2">IT</div>
-                    <div className="text-sm">Project Delivery</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">IT Project Delivery</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    We manage every detail of your IT infrastructure rollout, ensuring seamless delivery and minimal disruption to your business.
-                  </p>
-                  <Link href="/services/consulting" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-              
-              {/* Technical Program Management */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.35 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-4xl font-bold mb-2">Program</div>
-                    <div className="text-sm">Management</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Technical Program Management</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Oversight and coordination of multi-project programs, vendor management, and executive reporting for mission-critical technology initiatives.
-                  </p>
-                  <Link href="/services/training" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-              
-              {/* Project Recovery & Turnaround */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.5 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-4xl font-bold mb-2">Recovery</div>
-                    <div className="text-sm">& Turnaround</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Project Recovery & Turnaround</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Rapid assessment and rescue of troubled IT projects. We restore momentum, resolve issues, and deliver results for your organization.
-                  </p>
-                  <Link href="/services/coaching" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-              
-              {/* Stakeholder & Vendor Coordination */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.65 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-4xl font-bold mb-2">Coordination</div>
-                    <div className="text-sm">& Management</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Stakeholder & Vendor Coordination</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    We coordinate all project stakeholders and vendors, ensuring clear communication and accountability from kickoff to closeout.
-                  </p>
-                  <Link href="/services/consulting" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
+
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <span
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${activeServiceSlide === 0 ? "bg-primary" : "bg-gray-300"}`}
+            />
+            <span
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${activeServiceSlide === 1 ? "bg-primary" : "bg-gray-300"}`}
+            />
           </div>
 
-          {/* Specialized Services */}
-          <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">Specialized Technology Services</h3>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Microsoft Teams Voice */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.2 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-3xl font-bold mb-1">Teams</div>
-                    <div className="text-sm">Voice Solutions</div>
+          <Carousel
+            setApi={setCarouselApi}
+            opts={{ loop: false, duration: 44 }}
+            className="w-full overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl"
+          >
+            <CarouselContent className="ml-0">
+              <CarouselItem className="pl-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                  className="p-8 md:p-10 min-h-[520px]"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div className="lg:col-span-1">
+                      <h3 className="text-3xl font-bold text-foreground mb-4">Project Management</h3>
+                      <p className="text-muted-foreground mb-6">
+                        One unified service covering delivery leadership, program coordination, recovery, and stakeholder/vendor management.
+                      </p>
+                      <Image
+                        src="/images/icons/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL21vdGFybzdfZ3JlZW5fbW91bnRhaW5faWNvbl9zaWxob3VldHRlX21vbm90b25lX3NpbXBsZV9hZXN0aGV0aV80YjY5Mzk3NS1lOWE3LTRkZTItYmU3Mi02NGZiN2RhYjdkYzdfMi5qcGc.webp"
+                        alt="Mountain icon"
+                        width={110}
+                        height={110}
+                        className="h-auto w-24 object-contain opacity-90"
+                      />
+                    </div>
+                    <div className="lg:col-span-2">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="rounded-2xl bg-gray-50 p-6">
+                          <h4 className="text-lg font-semibold mb-2">IT Project Delivery</h4>
+                          <p className="text-muted-foreground text-sm mb-4">Full delivery leadership from planning through execution and closeout.</p>
+                          <Link href="/services/project-management" className="text-primary font-medium text-sm">Learn More →</Link>
+                        </div>
+                        <div className="rounded-2xl bg-gray-50 p-6">
+                          <h4 className="text-lg font-semibold mb-2">Technical Program Management</h4>
+                          <p className="text-muted-foreground text-sm mb-4">Multi-project coordination, executive reporting, and governance alignment.</p>
+                          <Link href="/services/project-management" className="text-primary font-medium text-sm">Learn More →</Link>
+                        </div>
+                        <div className="rounded-2xl bg-gray-50 p-6">
+                          <h4 className="text-lg font-semibold mb-2">Project Recovery &amp; Turnaround</h4>
+                          <p className="text-muted-foreground text-sm mb-4">Rapid stabilization support for at-risk projects and delayed programs.</p>
+                          <Link href="/services/project-management" className="text-primary font-medium text-sm">Learn More →</Link>
+                        </div>
+                        <div className="rounded-2xl bg-gray-50 p-6">
+                          <h4 className="text-lg font-semibold mb-2">Stakeholder &amp; Vendor Coordination</h4>
+                          <p className="text-muted-foreground text-sm mb-4">Structured communication and accountability across teams and partners.</p>
+                          <Link href="/services/project-management" className="text-primary font-medium text-sm">Learn More →</Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Microsoft Teams Voice</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Transform your communications with Microsoft Teams Voice integration and unified communications solutions.
-                  </p>
-                  <Link href="/services/teams-voice" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
+                </motion.div>
+              </CarouselItem>
 
-              {/* Telecom Architecture */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.35 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-3xl font-bold mb-1">Telecom</div>
-                    <div className="text-sm">Architecture</div>
+              <CarouselItem className="pl-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                  className="p-8 md:p-10 min-h-[520px]"
+                >
+                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 items-start">
+                    <div className="lg:col-span-1 lg:order-2">
+                      <h3 className="text-3xl font-bold text-foreground mb-4">Services</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Each specialty area has a dedicated service page with delivery scope, outcomes, and implementation focus.
+                      </p>
+                      <Image
+                        src="/images/icons/pngtree-mountains-and-lakes-icon-vector-png-image_7045309.png"
+                        alt="Mountain and lake icon"
+                        width={110}
+                        height={110}
+                        className="h-auto w-24 object-contain opacity-90"
+                      />
+                    </div>
+                    <div className="lg:col-span-2 lg:order-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Project Management</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Unified project delivery, program oversight, turnaround, and stakeholder coordination.</p>
+                        <Link href="/services/project-management" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Microsoft Teams Voice</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Unified communications design and implementation for modern collaboration.</p>
+                        <Link href="/services/teams-voice" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Telecommunication Architecture</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Robust telecom architecture that supports growth, resiliency, and transformation.</p>
+                        <Link href="/services/telecom-architecture" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Call Centre Solutions</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Modern contact-centre capabilities to improve customer experience and agent performance.</p>
+                        <Link href="/services/call-centre" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Network Architecture</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Foundational network design and delivery for secure, scalable digital operations.</p>
+                        <Link href="/services/network-architecture" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                      <div className="rounded-2xl bg-gray-50 p-6">
+                        <h4 className="text-lg font-semibold mb-2">Healthcare IT</h4>
+                        <p className="text-muted-foreground text-sm mb-4">Specialized infrastructure and delivery support for health authority environments.</p>
+                        <Link href="/services/health-authority" className="text-primary font-medium text-sm">Learn More →</Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Telecommunication Architecture</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Design and implement robust telecommunication infrastructure that powers your organization&apos;s digital transformation.
-                  </p>
-                  <Link href="/services/telecom-architecture" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Call Centre */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.5 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-3xl font-bold mb-1">Call Centre</div>
-                    <div className="text-sm">Architecture</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Call Centre Solutions</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Transform your customer service operations with modern call centre solutions that enhance customer experience and agent productivity.
-                  </p>
-                  <Link href="/services/call-centre" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Network Architecture */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.65 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-3xl font-bold mb-1">Network</div>
-                    <div className="text-sm">Architecture</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Network Architecture</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Design and implement robust network infrastructure that forms the foundation of your digital transformation.
-                  </p>
-                  <Link href="/services/network-architecture" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Healthcare */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ delay: 0.8 }}
-                className="bg-background rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 lg:col-start-2"
-              >
-                <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="text-3xl font-bold mb-1">Healthcare</div>
-                    <div className="text-sm">IT Solutions</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Healthcare IT</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Specialized IT project management and infrastructure delivery for healthcare environments with regulatory compliance.
-                  </p>
-                  <Link href="/services/health-authority" className="font-medium transition-colors text-primary hover:text-primary/80 text-sm">
-                    Learn More →
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+                </motion.div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/95 border shadow-md" />
+            <CarouselNext className="right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/95 border shadow-md" />
+          </Carousel>
         </div>
       </section>
 
       {/* About Section - now below Services */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-6">
-            About LPMI
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            LPMI’s project management team is PMI-trained and certified in advanced project management and leadership. We specialize in delivering IT infrastructure and technology projects on time and on budget for clients in healthcare, finance, utilities, and the public sector.
-          </p>
-          <ul className="space-y-2 text-muted-foreground mb-8">
-            <li className="flex items-center">
-              <span className="mr-2 text-primary">✓</span>
-              PMI-certified, advanced project managers
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 text-primary">✓</span>
-              Deep expertise in IT infrastructure and technical delivery
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 text-primary">✓</span>
-              Track record of on-time, on-budget project success
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 text-primary">✓</span>
-              Trusted by major Canadian organizations
-            </li>
-          </ul>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-6">
+              About LPMI
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              LPMI’s project management team is PMI-trained and certified in advanced project management and leadership. We specialize in delivering IT infrastructure and technology projects on time and on budget for clients in healthcare, finance, utilities, and the public sector.
+            </p>
+            <ul className="space-y-2 text-muted-foreground mb-8">
+              <li className="flex items-center">
+                <span className="mr-2 text-primary">✓</span>
+                PMI-certified, advanced project managers
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2 text-primary">✓</span>
+                Deep expertise in IT infrastructure and technical delivery
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2 text-primary">✓</span>
+                Track record of on-time, on-budget project success
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2 text-primary">✓</span>
+                Trusted by major Canadian organizations
+              </li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <Image
+              src="/images/AdobeStock_170135481.webp"
+              alt="LPMI project management collaboration"
+              width={900}
+              height={650}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 

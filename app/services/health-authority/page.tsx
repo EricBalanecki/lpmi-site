@@ -63,10 +63,10 @@ export default function HealthAuthorityService() {
                 Specialized IT project management and infrastructure delivery for BC Health Authority hospital redevelopment projects. Our healthcare IT experts understand the unique challenges of healthcare environments and deliver solutions that enhance patient care while ensuring regulatory compliance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700">
                   Get Started
                 </Link>
-                <Link href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-teal-200 text-base font-medium rounded-md text-teal-800 bg-white hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700">
                   Learn More
                 </Link>
               </div>
@@ -90,8 +90,8 @@ export default function HealthAuthorityService() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-6">
-                  <service.icon className="w-6 h-6 text-primary" />
+                <div className="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mb-6">
+                  <service.icon className="w-6 h-6 text-teal-700" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-4">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{service.description}</p>
@@ -114,22 +114,22 @@ export default function HealthAuthorityService() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+              <div className="w-16 h-16 bg-teal-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Healthcare Assessment</h3>
               <p className="text-muted-foreground">Comprehensive analysis of clinical workflows, regulatory requirements, and healthcare-specific needs.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+              <div className="w-16 h-16 bg-teal-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Clinical Design</h3>
               <p className="text-muted-foreground">Healthcare-focused architecture design with clinical workflow optimization and safety considerations.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+              <div className="w-16 h-16 bg-teal-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Safe Implementation</h3>
               <p className="text-muted-foreground">Phased deployment with minimal clinical disruption, comprehensive testing, and safety validation.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+              <div className="w-16 h-16 bg-teal-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Clinical Adoption</h3>
               <p className="text-muted-foreground">Specialized training, change management, and ongoing support for healthcare staff.</p>
             </div>
@@ -148,7 +148,7 @@ export default function HealthAuthorityService() {
               <ul className="space-y-4">
                 {expertise.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-teal-700 mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
@@ -160,7 +160,7 @@ export default function HealthAuthorityService() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-teal-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl mb-4">
             Ready to Transform Healthcare IT?
@@ -168,7 +168,7 @@ export default function HealthAuthorityService() {
           <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Let our healthcare IT experts help you implement technology solutions that enhance patient care, improve clinical workflows, and ensure regulatory compliance for your hospital redevelopment project.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-teal-800 bg-white hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
             Contact Us Today
           </Link>
         </div>

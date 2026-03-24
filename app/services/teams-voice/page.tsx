@@ -59,10 +59,10 @@ export default function TeamsVoiceService() {
                 Transform your organization's communication infrastructure with Microsoft Teams Voice. Our expert team delivers comprehensive voice solutions that integrate seamlessly with your existing Microsoft ecosystem, providing unified communications that enhance productivity and collaboration.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
                   Get Started
                 </Link>
-                <Link href="#features" className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <Link href="#features" className="inline-flex items-center justify-center px-6 py-3 border border-blue-200 text-base font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
                   Learn More
                 </Link>
               </div>
@@ -86,8 +86,8 @@ export default function TeamsVoiceService() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-6">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-6">
+                  <feature.icon className="w-6 h-6 text-blue-700" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-4">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
@@ -110,22 +110,22 @@ export default function TeamsVoiceService() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+              <div className="w-16 h-16 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Assessment & Planning</h3>
               <p className="text-muted-foreground">Evaluate current infrastructure and design optimal Teams Voice solution architecture.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+              <div className="w-16 h-16 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Configuration & Setup</h3>
               <p className="text-muted-foreground">Configure Teams Voice policies, routing, and integration with existing systems.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+              <div className="w-16 h-16 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Testing & Migration</h3>
               <p className="text-muted-foreground">Comprehensive testing and phased migration from legacy systems to Teams Voice.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+              <div className="w-16 h-16 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Training & Support</h3>
               <p className="text-muted-foreground">User training, documentation, and ongoing support for optimal adoption.</p>
             </div>
@@ -144,7 +144,7 @@ export default function TeamsVoiceService() {
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-blue-700 mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-muted-foreground">{benefit}</span>
                   </li>
                 ))}
@@ -156,7 +156,7 @@ export default function TeamsVoiceService() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl mb-4">
             Ready to Transform Your Communications?
@@ -164,7 +164,7 @@ export default function TeamsVoiceService() {
           <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Let our Microsoft Teams Voice experts help you implement a unified communications solution that enhances collaboration and productivity across your organization.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
             Contact Us Today
           </Link>
         </div>

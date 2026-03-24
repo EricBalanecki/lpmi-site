@@ -40,12 +40,12 @@ export default function About() {
     },
     {
       name: "Josh Bradley",
-      title: "IT Director/IT Solution Delivery Lead",
+      title: "IT Solution Delivery Lead",
       description: "Overseeing IT infrastructure projects and solution delivery across complex technical environments."
     },
     {
       name: "Amit Kurana",
-      title: "PMO Director/Project Management Delivery Lead",
+      title: "Project Management Delivery Lead",
       description: "Managing project portfolio delivery and establishing PMO best practices and methodologies."
     },
     {

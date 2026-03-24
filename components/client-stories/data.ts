@@ -69,7 +69,7 @@ export const coreProjects: CoreProject[] = [
     description:
       "Telecom design and replacement delivery for 55 sites and approximately 2,200 phones across the city, including WAN and network modernization.",
     tags: ["Telecom Design", "Network Replacement", "Municipal"],
-    logoSrc: "/images/logos/leading_pm_logo.png",
+    logoSrc: "/images/logos/surrey.png",
   },
   {
     title: "ICBC",
@@ -77,7 +77,7 @@ export const coreProjects: CoreProject[] = [
     description:
       "Project management support for enterprise infrastructure and communications initiatives with a focus on service continuity and stakeholder alignment.",
     tags: ["Enterprise Infrastructure", "Communications", "Project Delivery"],
-    logoSrc: "/images/logos/leading_pm_logo.png",
+    logoSrc: "/images/logos/icbc.svg",
   },
 ];
 
